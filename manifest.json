@@ -9,18 +9,20 @@
     "default_icon": "thillys.png",
     "default_popup": "interface.html"
   },
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": [
-      "js/canvas.js",
-      "js/interface.js",
-      "js/content_script_embed.js"
-    ],
-    "css": [
-      "css/embedded.css"
-    ],
-    "run_at": "document_idle"
-  }],
+  "content_scripts": [
+    {
+      "matches": [ "<all_urls>" ],
+      "js": [
+        "js/canvas.js",
+        "js/interface.js",
+        "js/content_script_embed.js"
+      ],
+      "css": [
+        "css/embedded.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
   "web_accessible_resources": [
     "interface.css"
   ]

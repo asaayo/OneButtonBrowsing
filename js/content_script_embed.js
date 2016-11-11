@@ -2,28 +2,32 @@
  * TODO: build out and refacor this before adding features
  */
 function prepareDom() {
-  var canvasElement = document.createElement('canvas');
-  canvasElement.id = "js-crosshair-canvas";
-  canvasElement.width = window.width;
-  canvasElement.height = window.height;
-  document.body.appendChild(canvasElement);
+    var canvasElement = document.createElement('canvas');
+    canvasElement.id = "js-crosshair-canvas";
+    canvasElement.width = window.width;
+    canvasElement.height = window.height;
+    document.body.appendChild(canvasElement);
 
-  prepareInterface();
+    prepareInterface();
 }
 
 function prepareInterface() {
-  var crossHair = new Interface({}),
-      drawables = [crossHair],
-      canvas = new Canvas({'drawables': drawables, 'canvas': document.getElementById('js-crosshair-canvas')});
+    var crossHair = new Interface({}),
+        drawables = [crossHair],
+        canvas = new Canvas({ 'drawables': drawables, 'canvas': document.getElementById('js-crosshair-canvas') });
 
-  document.addEventListener('mousedown', function() {
-    var value = crossHair.acceptInput();
-    if (value) {
-      document.elementFromPoint(value.x, value.y).click();
-    }
-  });
+    document.addEventListener('mousedown', function () {
+        crossHair.slow();
+    });
+    document.addEventListener("mouseup", function() {
+        var value = crossHair.acceptInput();
+        if (value) {
+            document.elementFromPoint(value.x, value.y).click();
+            crossHair.resetSpeed();
+        }
+    });
 
-  canvas.startAnimating();
+    canvas.startAnimating();
 }
 
 prepareDom();
