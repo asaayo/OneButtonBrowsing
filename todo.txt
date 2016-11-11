@@ -1,0 +1,30 @@
+stuff for hosting
+  name
+  short name
+  description
+  icon (128/128)
+  manifest icons:
+  "icons": { "16": "icon16.png",
+         "48": "icon48.png",
+        "128": "icon128.png" },
+  screenshots (1200/800)
+  meta images
+    440/280
+    920/680*
+    1400/560*
+
+go back over documentation befre gets too big to remember
+add buttons
+  back
+  forward
+  stop
+  favorites?
+  keyboard
+  url
+
+make speed slow down at extremes (1+ sec over buttons)
+make popup the menu
+save settings to local storage
+keep as embedded or go back to extension/thing?
+  clean up the embedded/extension refactor regardless
+name it, CrossHair? oneButton? theButton?
