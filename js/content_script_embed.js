@@ -1,48 +1,56 @@
 /**
  * TODO: build out and refacor this before adding features
  */
-function prepareDom() {
-    var canvasElement = document.createElement('canvas');
-    canvasElement.id = "js-crosshair-canvas";
-    canvasElement.width = window.width;
-    canvasElement.height = window.height;
-    document.body.appendChild(canvasElement);
 
-    prepareInterface();
-}
 
-function prepareInterface() {
-    var crossHair = new Interface({}),
-        drawables = [crossHair],
-        canvas = new Canvas({ 'drawables': drawables, 'canvas': document.getElementById('js-crosshair-canvas') });
-
-    document.addEventListener('mousedown', function () {
-        crossHair.slow();
-    });
-    document.addEventListener("mouseup", function() {
-        var value = crossHair.acceptInput();
-        if (value) {
-            document.elementFromPoint(value.x, value.y).click();
-            crossHair.resetSpeed();
-        }
-    });
-
-    canvas.startAnimating();
-}
-
-prepareDom();
 /**
-* Main loop outline
- * initalize canvas as transparent and resize to active tab
- * initalize interfaces
- * start scanning on x axis
- * await input event
-    * on input
-    * record x axis value
- * start scanning y axis
- * await input event
-    * on input
-    * record y axis value
-    * send x and y values to tab as a click
-    * set x and y values to zero
+*   TODO:::
+*   IIFE to make for easy starting point, not sure the direction this is going to go.
+*   things to add:
+*   load OPTIONS from local storage
+*   set up listeners to the popup.html for menu changes and events
 */
+
+/*
+*   prepareDom: Creates elements needed for the interface and injects them into the current tab
+*/
+(function prepareDom() {
+  var canvasElement = document.createElement('canvas');
+  canvasElement.id = "js-crosshair-canvas";
+  canvasElement.width = window.width;
+  canvasElement.height = window.height;
+  document.body.appendChild(canvasElement);
+
+  prepareInterface();
+})();
+
+/**
+*  prepareInterface: main entry point for starting the interface
+*   creates the interface object
+*   creates the canvas object
+*   adds event listeners fo the DOM
+*   starts the interface animating and listening for events
+* @param options: nothing specific for prepareInterface, see canvas.js/Canvas
+*/
+function prepareInterface(options) {
+  var crossHair = new Interface({}),
+      drawables = [crossHair],
+      //TODO: get these from local storage
+      options = {'drawables': drawables, 'canvas': document.getElementById('js-crosshair-canvas')},
+      canvas = new Canvas(options);
+
+
+  //  TODO: generalize the event emitter to keyboard/mouse
+  document.addEventListener('mousedown', function () {
+      crossHair.slow();
+  });
+  document.addEventListener("mouseup", function() {
+      var value = crossHair.acceptInput();
+      if (value) {
+          document.elementFromPoint(value.x, value.y).click();
+          crossHair.resetSpeed();
+      }
+  });
+
+  canvas.startAnimating();
+}

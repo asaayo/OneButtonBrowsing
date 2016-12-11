@@ -12,19 +12,26 @@ stuff for hosting
     440/280
     920/680*
     1400/560*
+  get thilly.net doing something, explanation/practice?
 
 go back over documentation befre gets too big to remember
-add buttons
-  back
-  forward
-  stop
-  favorites?
-  keyboard
-  url
+also figure out a naming convention...
+  hard to keep what's what, and which js is accessible where.
 
-make speed slow down at extremes (1+ sec over buttons)
-make popup the menu
-save settings to local storage
-keep as embedded or go back to extension/thing?
-  clean up the embedded/extension refactor regardless
-name it, CrossHair? oneButton? theButton?
+feature dump::
+generalize the content_script embedding and messaging
+  add buttons (togglable, movable, re-sizeable)
+    back
+    forward
+    stop
+    favorites?
+    keyboard
+    url
+
+  make speed slow down at extremes (1+ sec over buttons)
+  make popup.html the menu
+  save settings to local storage
+  keep as embedded or go back to extension/thing?
+    clean up the embedded/extension refactor regardless
+  name it, CrossHair? oneButton? theButton?
+  reverse sweep on hold? double tap?
