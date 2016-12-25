@@ -3,11 +3,11 @@
 
   "name": "One Button",
   "description": "This extension attempts to create a one button interface to the internet.",
-  "version": "0.1.1",
+  "version": "0.1.2",
 
   "browser_action": {
-    "default_icon": "thillys.png",
-    "default_popup": "menu_popup.html"
+    "default_icon": "favicon.png",
+    "default_popup": "html/menu_popup.html"
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
@@ -21,7 +21,9 @@
     ],
     "run_at": "document_idle"
   }],
+  "options_page": "html/options.html",
   "web_accessible_resources": [
-    "css/menu_popup.css"
+    "css/menu_popup.css",
+    "html/testing.html"
   ]
 }

@@ -20,8 +20,8 @@ var MENU_SETTINGS = [ //TODO: create menu to choose options and save in local st
 
 'outline_width',  // to help visibility on different backgrounds interface line gets sandwiched between lines
 'outline_color',
-'transparency',
-]
+'transparency'
+];
 
 /**
 *
