@@ -41,6 +41,8 @@ function prepareInterface(options) {
 
 
   //  TODO: generalize the event emitter to keyboard/mouse
+  // TODO: generalize the input as just 'start' 'stop'
+  // todo hold onto timing states and whatnot inside of crosshair (do not create logic around input)
   document.addEventListener('mousedown', function () {
       crossHair.slow();
   });
